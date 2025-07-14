@@ -1,0 +1,29 @@
+{
+  "name": "hardhat-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maximum319/hardhat-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/maximum319/hardhat-template/issues"
+  },
+  "homepage": "https://github.com/maximum319/hardhat-template#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.13",
+    "@nomicfoundation/hardhat-toolbox": "^6.0.0",
+    "@openzeppelin/contracts": "^5.3.0",
+    "dotenv": "^17.2.0",
+    "ethers": "^6.15.0",
+    "hardhat": "^2.25.0"
+  }
+}
