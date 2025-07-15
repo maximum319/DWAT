@@ -5,7 +5,7 @@ import {ERC20Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC20/
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-contract DWAT is Initializable, ERC20Upgradeable, OwnableUpgradeable {
+contract HRKS is Initializable, ERC20Upgradeable, OwnableUpgradeable {
 
     uint256 constant CO_FOUNDER_PERCENTAGE = 12;
     uint256 constant DEVELOPER_PERCENTAGE = 8;
@@ -17,7 +17,7 @@ contract DWAT is Initializable, ERC20Upgradeable, OwnableUpgradeable {
     uint256 constant TOTAL_SUPPLY = 100000000000;
 
     function initialize() public initializer {
-        __ERC20_init("DWAT", "DWAT");
+        __ERC20_init("HRKS", "HRKS");
         __Ownable_init(msg.sender);
         _mint(msg.sender, TOTAL_SUPPLY);
     }
