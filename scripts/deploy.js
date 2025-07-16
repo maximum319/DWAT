@@ -4,23 +4,6 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function verify(contractAddress, args) {
-    console.log("Verifying contract...");
-    console.log(args);
-    try {
-      await hre.run("verify:verify", {
-        address: contractAddress,
-        constructorArguments: args,
-      });
-    } catch (e) {
-      if (e.message.toLowerCase().includes("already verified")) {
-        console.log("Already verified!");
-      } else {
-        console.log(e);
-      }
-    }
-}
-
 async function main() {
 
     console.log("Deploying HRKS...");
@@ -46,7 +29,7 @@ async function main() {
 
     console.log("Deploying ICO...");
     const ICO = await ethers.getContractFactory("ICO");
-    const icoContract = await ICO.deploy("0x21855C51ad607D28B6fd1B7E9E638a14836168ab");
+    const icoContract = await ICO.deploy(hrksContractAddress);
     await icoContract.waitForDeployment();
     const icoContractAddress = await icoContract.getAddress();
     console.log("ICO deployed to:", icoContractAddress);
