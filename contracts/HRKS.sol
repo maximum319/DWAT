@@ -6,7 +6,6 @@ import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Ini
 import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
 contract HRKS is Initializable, ERC20Upgradeable, OwnableUpgradeable {
-
     uint256 constant CO_FOUNDER_PERCENTAGE = 12;
     uint256 constant DEVELOPER_PERCENTAGE = 8;
     uint256 constant MARKETING_PERCENTAGE = 5;

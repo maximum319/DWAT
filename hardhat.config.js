@@ -9,6 +9,7 @@ const SEPOLIA_RPC_URL = process.env.SEPOLIA_RPC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 const HOLESKY_RPC_URL = process.env.HOLESKY_RPC_URL;
+const FUSE_RPC_URL = process.env.FUSE_RPC_URL;
 
 module.exports = {
   solidity: {
@@ -21,6 +22,10 @@ module.exports = {
     },
     holesky: {
       url: HOLESKY_RPC_URL,
+      accounts: [PRIVATE_KEY],
+    },
+    fuse: {
+      url: FUSE_RPC_URL,
       accounts: [PRIVATE_KEY],
     }
   },
