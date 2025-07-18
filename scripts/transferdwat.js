@@ -13,29 +13,29 @@ async function main() {
   const DeveloperAddress1 = process.env.DEVELOPER1_ADDRESS;
   const DeveloperAddress2 = process.env.DEVELOPER2_ADDRESS;
 
-  const hrks = await ethers.getContractFactory("HRKS");
-  const hrksContract = await hrks.attach("0x21855C51ad607D28B6fd1B7E9E638a14836168ab");
+  const dwat = await ethers.getContractFactory("DWAT");
+  const dwatContract = await dwat.attach("0x716aFF0E9B87B619fA7d5FF79b559ebC5E4cfCFB");
 
-  const balance = await hrksContract.balanceOf(deployer.address);
+  const balance = await dwatContract.balanceOf(deployer.address);
   console.log("before transfer balance: ", balance);
 
-  await hrksContract.transfer(CoFounderAddress1, 3000000000n);
-  await hrksContract.transfer(CoFounderAddress2, 3000000000n);
-  await hrksContract.transfer(CoFounderAddress3, 3000000000n);
-  await hrksContract.transfer(CoFounderAddress4, 3000000000n);
+  // await dwatContract.transfer(CoFounderAddress1, 3000000000000000000000000000n);
+  // await dwatContract.transfer(CoFounderAddress2, 3000000000000000000000000000n);
+  // await dwatContract.transfer(CoFounderAddress3, 3000000000000000000000000000n);
+  // await dwatContract.transfer(CoFounderAddress4, 3000000000000000000000000000n);
 
-  await hrksContract.transfer(DeveloperAddress1, 4000000000n);
-  await hrksContract.transfer(DeveloperAddress2, 4000000000n);
+  // await dwatContract.transfer(DeveloperAddress1, 4000000000000000000000000000n);
+  // await dwatContract.transfer(DeveloperAddress2, 4000000000000000000000000000n);
   
-  await hrksContract.transfer("0xcd7ccc88f070c305693730ABd57508a55B9Fc1B8", 40000000000n);
-  await hrksContract.transfer("0x08513530830C1Da23fB170786e4987891dF27734", 20000000000n);
-  await hrksContract.transfer("0x246ff0Efef1B1a8Bc61f733D9bB38F549F16c79B", 15000000000n);
-  await hrksContract.transfer("0xDA70eC0eabB9b30F15C92C2E0EcaDd6AaA2425dC", 5000000000n);
+  // await dwatContract.transfer("0xa5E14C2f8B7ac11a56e3f189f36A69FD31eeef44", 40000000000000000000000000000n);
+  // await dwatContract.transfer("0x36Aca6429319AbE137a2972e28465d06676EBEBC", 20000000000000000000000000000n);
+  // await dwatContract.transfer("0xAc2A68C06D26cC123c6A77B076689c58e7FCa451", 15000000000000000000000000000n);
+  // await dwatContract.transfer("0xA7782c228F3549e97C3CFF4Cc79Cd78b9FC15451", 5000000000000000000000000000n);
 
   const ico = await ethers.getContractFactory("ICO");
-  const icoContract = await ico.attach("0x14024B275CEd8e87cbF908ED78B051f01Ebb3b54");
+  const icoContract = await ico.attach("0x36Aca6429319AbE137a2972e28465d06676EBEBC");
 
-  await icoContract.transferDwat(CoFounderAddress1, 10000000000n);
+  await icoContract.transferDwat("0x70Cc1636b668F718c3203D10C47AD356A097AAB3", 8000000000000000000000000000n);
 }
 
 main().catch((error) => {

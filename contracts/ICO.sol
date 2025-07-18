@@ -14,7 +14,7 @@ contract ICO is Ownable {
     }
 
     function transferDwat(address to, uint256 amount) public onlyOwner {
-        DWAT.transfer(to, amount * 10 ** 18);
+        DWAT.transfer(to, amount);
         emit DwatTransferred(to, amount);
     }
 }

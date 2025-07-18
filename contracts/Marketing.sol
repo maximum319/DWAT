@@ -5,7 +5,7 @@ import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Marketing is Ownable {
-    IERC20 public DWAT;
+    IERC20 public immutable DWAT;
 
     event DwatTransferred(address to, uint256 amount);
 
@@ -14,7 +14,7 @@ contract Marketing is Ownable {
     }
 
     function transferDwat(address to, uint256 amount) public onlyOwner {
-        DWAT.transfer(to, amount * 10 ** 18);
+        DWAT.transfer(to, amount);
         emit DwatTransferred(to, amount);
     }
 }

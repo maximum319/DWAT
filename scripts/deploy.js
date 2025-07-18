@@ -6,30 +6,30 @@ function sleep(ms) {
 
 async function main() {
 
-    console.log("Deploying HRKS...");
+    console.log("Deploying DWAT...");
 
-    const HRKS = await ethers.getContractFactory("HRKS");
-    const hrksContract = await upgrades.deployProxy(
-        HRKS, [], { kind: 'transparent', initializer: 'initialize' }
+    const DWAT = await ethers.getContractFactory("DWAT");
+    const dwatContract = await upgrades.deployProxy(
+        DWAT, [], { kind: 'transparent', initializer: 'initialize' }
     );
-    await hrksContract.waitForDeployment();
-    const hrksContractAddress = await hrksContract.getAddress();
-    const hrksImplAddress = await upgrades.erc1967.getImplementationAddress(hrksContractAddress);
-    console.log("HRKS deployed to:", hrksContractAddress);
-    console.log("HRKS implementation address:", hrksImplAddress);
+    await dwatContract.waitForDeployment();
+    const dwatContractAddress = await dwatContract.getAddress();
+    const dwatImplAddress = await upgrades.erc1967.getImplementationAddress(dwatContractAddress);
+    console.log("DWAT deployed to:", dwatContractAddress);
+    console.log("DWAT implementation address:", dwatImplAddress);
 
     await sleep(10000);
     
     console.log("Deploying Community...");
     const Community = await ethers.getContractFactory("Community");
-    const communityContract = await Community.deploy(hrksContractAddress);
+    const communityContract = await Community.deploy(dwatContractAddress);
     await communityContract.waitForDeployment();
     const communityContractAddress = await communityContract.getAddress();
     console.log("Community deployed to:", communityContractAddress);
 
     console.log("Deploying ICO...");
     const ICO = await ethers.getContractFactory("ICO");
-    const icoContract = await ICO.deploy(hrksContractAddress);
+    const icoContract = await ICO.deploy(dwatContractAddress);
     await icoContract.waitForDeployment();
     const icoContractAddress = await icoContract.getAddress();
     console.log("ICO deployed to:", icoContractAddress);
@@ -37,7 +37,7 @@ async function main() {
 
     console.log("Deploying Liquidity");
     const Liquidity = await ethers.getContractFactory("Liquidity");
-    const liquidityContract = await Liquidity.deploy(hrksContractAddress);
+    const liquidityContract = await Liquidity.deploy(dwatContractAddress);
     await liquidityContract.waitForDeployment();
     const liquidityContractAddress = await liquidityContract.getAddress();
     console.log("Liquidity deployed to:", liquidityContractAddress);
@@ -45,7 +45,7 @@ async function main() {
 
     console.log("Deploying Marketing");
     const Marketing = await ethers.getContractFactory("Marketing");
-    const marketingContract = await Marketing.deploy(hrksContractAddress);
+    const marketingContract = await Marketing.deploy(dwatContractAddress);
     await marketingContract.waitForDeployment();
     const marketingContractAddress = await marketingContract.getAddress();
     console.log("Marketing deployed to:", marketingContractAddress);

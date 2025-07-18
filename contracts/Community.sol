@@ -4,8 +4,6 @@ pragma solidity ^0.8.28;
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
-import {HRKS} from "./HRKS.sol";
-
 contract Community is Ownable {
     IERC20 public immutable DWAT;
 
@@ -16,7 +14,7 @@ contract Community is Ownable {
     }
 
     function transferDwat(address to, uint256 amount) public onlyOwner {
-        DWAT.transfer(to, amount * 10 ** 18);
+        DWAT.transfer(to, amount);
         emit DwatTransferred(to, amount);
     }
 }
